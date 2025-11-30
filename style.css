@@ -1,0 +1,798 @@
+@import url('https://fonts.cdnfonts.com/css/abolition-test');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Science+Gothic:wght@100..900&display=swap');
+
+ 
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* ESTILO GERAL */
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative; 
+    z-index: 10; 
+}
+
+
+/* Separador de Seções com Sombra */
+.section-separator {
+    border-bottom: 2px solid #e0e0e0; 
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.2); 
+}
+
+/* Estilo do header */
+header {
+    padding: 0 4%; 
+    border-bottom: none; 
+    background-color: transparent; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; 
+    min-height: auto; 
+}
+
+.header-logo img {
+    margin-top: 0px; 
+    width: 8rem;    
+    height: auto;   
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; /* Padding vertical no header-container */
+}
+
+
+/* MENU DESKTOP */
+.desktop-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 1rem;
+}
+
+.desktop-menu ul li a:hover {
+    color: #ff0000;
+}
+
+/* MENU MOBILE */
+.btn-menu-mobile {
+    display: none;
+}
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100vh;
+    background-color: #1a1a1a;
+    z-index: 200;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.menu-mobile.open-menu {
+    width: 70%;
+}
+
+.menu-mobile nav {
+    padding: 80px 40px;
+}
+
+.menu-mobile nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-mobile nav ul li {
+    margin: 30px 0;
+}
+
+.menu-mobile nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: block;
+    transition: color 0.3s;
+}
+
+.menu-mobile nav ul li a:hover {
+    color: #ff0000;
+}
+
+.btn-close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-close-menu i {
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-close-menu i:hover {
+    color: #ff0000;
+}
+
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 150;
+    display: none;
+}
+
+/* ESTILO HOME */
+.home {
+    height: 100vh;
+    background-image: url(image/Banner\ do\ Site\ v4.png.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 0; /* Remove padding top para usar 100vh */
+}
+
+/* Overlay para escurecer a imagem */
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 5;
+}
+
+
+
+
+/* Linhas 148-151 no style.css */
+.home-img {
+    /* Mudando de 50% para 40% */
+    max-width: 40%;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.home-title {
+    font-size: 3.5em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Linhas 141-146 no style.css */
+.home-text {
+    color: #fff;
+    /* Mudando de 50% para 60% */
+    max-width: 40%; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 17em;
+}
+
+.home-title span {
+    font-family: "Science Gothic", sans-serif;
+    font-size: 1em;
+    color: #ff0000;
+}
+
+/* Estilos para a Seção de Parceiros (Mantido) */
+.partners { 
+    padding: 50px 4%; 
+    background-color: #e9eff5;
+    text-align: center; 
+}
+
+.partners .section-title{
+    font-size: 2.5rem;
+    color: #0c243c;
+}
+/* Container dos logos dos parceiros */
+.partners-logos { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 40px; 
+} 
+
+/* Estilos individuais do parceiro */
+.partner-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    max-width: 200px; 
+    transition: transform 0.3s ease; 
+} 
+
+/* Efeito de hover para os parceiros */
+.partner-item:hover { 
+    transform: translateY(-5px); 
+}
+
+.partner-item img {
+    max-width: 100%;
+    height: auto;
+    opacity: 0.8; 
+    transition: opacity 0.3s ease;
+}
+
+.partner-item:hover img {
+    opacity: 1; 
+}
+
+/* SEÇÃO SOBRE */
+/* ---------------------------------------------------- */
+/* SEÇÃO ABOUT (SOBRE) - CARD MODERNIZADO COM TIMELINE */
+/* ---------------------------------------------------- */
+.about {
+    padding: 50px 4%;
+    background-color: #f8f8f8; /* RESTAURADO: Fundo Cinza Claro Original */
+    position: relative; 
+    overflow: hidden; 
+}
+
+.about::after {
+    content: none; /* Remove marca d'água para simplificar */
+}
+
+.about .interface {
+    position: relative;
+    z-index: 1;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    gap: 30px;
+}
+
+/* Ajuste o Título da Seção para contraste no fundo Claro */
+.about .section-title {
+    color: #0c243c; /* Título Escuro */
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+.about .section-title span {
+    color: #ff0000; /* Destaque Vermelho */
+}
+
+
+/* CARD DE CONTEÚDO BRANCO (ESTILO FLUTUANTE MODERNO) */
+
+.about-content-card {
+    background-color: #ffffff; /* Fundo Branco */
+    border-radius: 12px;
+    padding: 40px;
+    /* Sombra para dar o efeito de "flutuação" */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    max-width: 1150px; /* AUMENTADO: A nova largura máxima do card */
+    width: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* gap: 40px; */
+}
+
+
+.about-img {
+    flex: 1; 
+    min-width: 250px;
+    max-width: 50%; 
+    text-align: center; 
+}
+
+.about-img img {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 8px; 
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.about-text-item strong{
+    color: #0c243c;
+}
+
+/* ---------------------------------------------------- */
+/* ESTILOS DA TIMELINE VERTICAL E ÍCONES */
+/* ---------------------------------------------------- */
+.about-text { 
+    flex: 2;
+    max-width: 500px; 
+    line-height: 1.8; 
+    
+    /* Base para a linha vertical */
+    position: relative; 
+    padding-left: 20px; 
+}
+
+/* LINHA VERTICAL AZUL NEON */
+.about-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px; /* Largura da linha */
+    height: 100%; /* Altura total do conteúdo de texto */
+    background-color: #2f79d5; /* Cor Neon Azul */
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(47, 121, 213, 0.7); /* Brilho Neon */
+}
+
+/* Título interno do card */
+.about-text h3 {
+    font-size: 1.8rem;
+    color: #ff0000; /* Título interno Vermelho */
+    margin-bottom: 30px; 
+    padding-left: 10px; /* Alinha o título com o texto */
+}
+
+.about-text-item {
+    display: flex;
+    align-items: flex-start; /* Alinha o ícone no topo do texto */
+    margin-bottom: 25px; /* Espaçamento entre os itens */
+    gap: 15px; /* Espaço entre o ícone e o texto */
+    position: relative;
+}
+
+/* ESTILO DOS ÍCONES GRANDES */
+.about-text-item i {
+    font-size: 1.8rem; /* Ícones grandes */
+    color: #ff0000; /* Cor Vermelha de Destaque */
+    flex-shrink: 0; 
+    
+    /* Posicionamento sobre a linha vertical */
+    position: relative;
+    left: -28px; 
+    padding: 3px;
+    background-color: #ffffff; /* Fundo branco do card para 'recortar' a linha */
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.about-text p {
+    font-size: 1.15em; 
+    margin-bottom: 0; 
+    color: #333; /* Texto Escuro para contraste no fundo branco do card */
+    font-weight: 400;
+}
+
+/* --- NOVO: ESTILO CARROSSEL INTERATIVO (Substituindo a antiga Gallery) --- */
+
+.gallery {
+    margin-top: 40px;
+    padding: 80px 4%;
+    /* REQUERIDO: Fundo Azul Escuro */
+    background-color: #0c243c; 
+    /* REQUERIDO: A cor do texto dentro da seção deve ser clara */
+    color: #f8f8f8; 
+}
+
+.gallery .section-title {
+    /* Centraliza o texto */
+    text-align: center; 
+    /* REQUERIDO: Usa o mesmo tamanho e fonte (já definido pela classe section-title) */
+    font-size: 2.5rem; 
+    /* Garante que o título seja branco/claro no fundo escuro */
+    color: #ffffff; 
+    margin-bottom: 50px;
+}
+
+.gallery .section-title span {
+    /* Mantém o destaque em vermelho para a parte que usa 'span' */
+    color: #ff0000; 
+}
+
+
+/* Ajustes no Carousel Container para contraste no novo fundo */
+.carousel-container {
+    display: flex; 
+    gap: 60px; 
+    align-items: center;
+    margin-top: 50px;
+    /* Mantém o fundo branco para contraste com a seção */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Sombra mais forte no fundo escuro */
+    padding: 40px;
+    min-height: 480px; 
+}
+
+/* LADO ESQUERDO: ÁREA DE DESCRIÇÃO */
+.carousel-description-area {
+    flex: 1.2; 
+    max-width: 550px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    position: relative; 
+}
+
+.carousel-description-item {
+    position: absolute; 
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    text-align: left;
+}
+.carousel-description-item.active {
+    opacity: 1;
+    visibility: visible;
+    /* A classe 'active' já está centralizada via translateY(-50%) */
+    z-index: 5; /* Garante que a descrição ativa esteja no topo */
+}
+
+.carousel-description-item h3 {
+    font-family: "Arial", sans-serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+.carousel-description-item p {
+    /* Texto escuro no card branco */
+    color: #444; 
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+.carousel-description-item ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+.carousel-description-item li {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+}
+.carousel-description-item i {
+    color: #ff0000; 
+    margin-right: 10px;
+}
+
+/* Estilo do Botão */
+.btn-main {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #e60000;
+    transform: translateY(-2px);
+}
+
+/* LADO DIREITO: ÁREA DO CARROSSEL DE IMAGENS */
+.carousel-image-area {
+    flex: 1; 
+    max-width: 600px;
+    position: relative;
+    overflow: hidden; 
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-images-track {
+    display: flex; 
+    width: 100%; 
+    transition: transform 0.6s ease-in-out; 
+    height: 400px; /* Altura fixa para o carrossel de imagens */
+}
+
+.carousel-images-track img {
+    flex: 0 0 100%; 
+    width: 100%;
+    height: 100%; 
+    object-fit: contain; 
+    background-color: #fcfcfc; 
+    border-radius: 12px; 
+}
+
+/* NAVEGAÇÃO DO CARROSSEL */
+.carousel-navigation {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px; 
+}
+
+.carousel-navigation .nav-button {
+    background-color: rgba(255, 0, 0, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+.carousel-navigation .nav-button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+}
+/* --- FIM NOVO CARROSSEL INTERATIVO --- */
+
+/* SEÇÃO FACTS (FATOS/ESTATÍSTICAS) */
+/* -------------------------------------------------------------------------------------- */
+.facts {
+    /* margin-top: 80px; */
+    background-color: #ffffff; /* REQUERIDO: Fundo agora é Branco */
+    color: #333; 
+    padding: 80px 4%;
+    text-align: center;
+}
+
+.facts-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.fact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+}
+
+.fact-icon {
+    font-size: 3rem;
+    color: #ff0000; /* REQUERIDO: Ícone em Vermelho */
+    margin-bottom: 10px;
+}
+
+.fact-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #ff0000; /* REQUERIDO: Título (H3) em Vermelho */
+}
+
+.fact-item p {
+    font-size: 1.2rem;
+    color: #0c243c; /* REQUERIDO: Parágrafo (P) em Azul Marinho Escuro */
+    font-weight: bold;
+}
+/* FIM DO ESTILO DOS FATOS */
+
+/* -------------------- ESTILOS DA SEÇÃO DE CONTATO -------------------- */
+.contact {
+    /* Mantido o padding para a classe genérica, mas a cor é definida no ID */
+    padding: 80px 4%; 
+}
+
+#contact {
+    padding: 80px 0;
+    background-color: #0c243c; /* REQUERIDO: Fundo Azul Marinho Escuro (Tema Dark/Neon) */
+}
+
+.contact .flex {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center; 
+}
+
+.contact-info {
+    display: block;
+    min-width: 300px;
+    
+    /* ESTILO DO CARD DE INFORMAÇÕES */
+    background-color: #1a3c60; /* Fundo levemente mais claro que o fundo da seção */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(47, 121, 213, 0.5); /* Borda sutil neon */
+    box-shadow: 0 0 10px rgba(47, 121, 213, 0.4); /* Brilho neon sutil */
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #fff; /* Título Branco */
+    border-bottom: 2px solid #ff0000; /* Linha de destaque Vermelha */
+    padding-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e0e0e0; /* Texto Cinza Claro */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    font-size: 20px;
+    color: #ff0000; /* Ícones em Vermelho (Destaque) */
+    margin-right: 10px;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Sombra sutil nos ícones */
+}
+
+/* O .contact-form não está no seu HTML, mas é mantido no CSS caso você o adicione depois */
+.contact-form {
+    display: none; 
+}
+
+
+.footer {
+    padding: 30px 4%;
+    background-color: #Fff;
+    border-top: 1px solid #1a3c60; 
+}
+
+.footer .interface {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.footer-logo img {
+    width: 10em;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+}
+
+.footer-info {
+    text-align: right;
+    color: #a0a0a0; 
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.footer-info p {
+    
+    font-weight: bold;
+}
+
+/* --- MEDIA QUERIES --- */
+@media screen and (max-width: 992px) {
+    /* SOBRE */
+    .about-content-card {
+        padding: 30px;
+    }
+    .about-image {
+        max-width: 100%; /* Imagem em cima */
+    }
+    .about-text {
+        max-width: 100%; /* Texto embaixo */
+    }
+
+    /* CARROSSEL INTERATIVO */
+    .carousel-container {
+        flex-direction: column; /* Empilha as seções em telas menores */
+        gap: 40px;
+        padding: 30px;
+        min-height: auto;
+    }
+    .carousel-description-area {
+        max-width: 100%;
+        min-height: auto;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+    .carousel-description-item {
+        position: relative; /* Remove o posicionamento absoluto no mobile */
+        top: auto;
+        transform: none;
+        text-align: center;
+    }
+    .carousel-description-item ul {
+        display: inline-block; /* Ajuda a centralizar a lista */
+        text-align: left;
+    }
+    .carousel-description-item.active {
+        transform: none;
+    }
+    .carousel-image-area {
+        max-width: 100%;
+        height: 350px; /* Altura um pouco menor no mobile */
+    }
+
+    /* CONTATO */
+    .contact-info p {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    /* GERAL */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* HEADER/MENU */
+    .desktop-menu {
+        display: none;
+    }
+    .btn-menu-mobile {
+        display: block;
+    }
+
+.btn-menu-mobile i {
+    font-size: 2.2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+    /* HOME */
+    .home-title {
+        font-size: 2.5em; 
+    }
+    .home-text p {
+        font-size: 1rem;
+    }
+    .btn-primary-home {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+
+    /* CARROSSEL INTERATIVO */
+    .carousel-image-area {
+        height: 280px;
+    }
+    .carousel-navigation .nav-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
