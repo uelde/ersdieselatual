@@ -472,7 +472,7 @@ header {
 .carousel-description-item ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 .carousel-description-item li {
     font-size: 1rem;
@@ -691,7 +691,7 @@ header {
 
 .footer-info {
     text-align: right;
-    color: #a0a0a0; 
+    color: #0c243c; 
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -703,58 +703,91 @@ header {
 
 /* --- MEDIA QUERIES --- */
 @media screen and (max-width: 992px) {
+
     /* SOBRE */
     .about-content-card {
         padding: 30px;
     }
+
     .about-image {
-        max-width: 100%; /* Imagem em cima */
-    }
-    .about-text {
-        max-width: 100%; /* Texto embaixo */
+        max-width: 100%;
     }
 
-    /* CARROSSEL INTERATIVO */
-    .carousel-container {
-        flex-direction: column; /* Empilha as seções em telas menores */
-        gap: 40px;
-        padding: 30px;
-        min-height: auto;
-    }
-    .carousel-description-area {
+    .about-text {
         max-width: 100%;
-        min-height: auto;
-        padding-bottom: 20px;
+    }
+
+    /* CARROSSEL INTERATIVO: empilha descrição acima da imagem, mas preserva o track flex */
+    .carousel-container {
+        flex-direction: column;
+        gap: 24px;
+        padding: 28px;
+        min-height: 0;
+        height: auto;
+    }
+
+    /* Descrição: ocupa toda a largura, mas só a .active ficará visível */
+    .carousel-description-area {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        padding: 0;
         text-align: center;
     }
+
+    /* Esconder por padrão e mostrar somente a ativa (o JS adiciona .active) */
     .carousel-description-item {
-        position: relative; /* Remove o posicionamento absoluto no mobile */
-        top: auto;
+        display: none;
+        position: relative;
+        margin: 0 auto 30px;
+        opacity: 1; /* visível quando display:block */
         transform: none;
+        top: auto;
+        visibility: visible;
         text-align: center;
-    }
-    .carousel-description-item ul {
-        display: inline-block; /* Ajuda a centralizar a lista */
-        text-align: left;
     }
     .carousel-description-item.active {
-        transform: none;
-    }
-    .carousel-image-area {
-        max-width: 100%;
-        height: 350px; /* Altura um pouco menor no mobile */
+        display: block;
     }
 
-    /* CONTATO */
-    .contact-info p {
-        flex-direction: column;
-        gap: 5px;
+    .carousel-description-item ul {
+        display: inline-block;
+        text-align: left;
+        margin: 0 auto;
+    }
+
+    /* Área de imagem: ocupa toda a largura, com limite de altura para evitar empurrões */
+    .carousel-image-area {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 320px; /* evita que a imagem estoure e empurre conteúdos */
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    /* O TRACK precisa continuar sendo flex para o JS calcular clientWidth corretamente */
+    .carousel-images-track {
+        display: flex;
+        width: 100%;
+        transition: transform 0.6s ease-in-out;
+        height: 100%;
+    }
+
+    /* Cada imagem ocupa 100% do track — preserve a mecânica do translateX */
+    .carousel-images-track img {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* mostra a imagem inteira sem distorcer */
+        background-color: #fcfcfc;
+        border-radius: 12px;
     }
 }
 
-
+/* MOBILE MAIS PEQUENO */
 @media screen and (max-width: 768px) {
-    /* GERAL */
+
     .section-title {
         font-size: 2rem;
     }
@@ -767,32 +800,28 @@ header {
         display: block;
     }
 
-.btn-menu-mobile i {
-    font-size: 2.2rem;
-    color: #fff;
-    cursor: pointer;
-    transition: color 0.3s;
-}
+    .btn-menu-mobile i {
+        font-size: 2.2rem;
+        color: #fff;
+    }
 
     /* HOME */
     .home-title {
-        font-size: 2.5em; 
-    }
-    .home-text p {
-        font-size: 1rem;
-    }
-    .btn-primary-home {
-        font-size: 1rem;
-        padding: 12px 30px;
+        font-size: 2.3em;
     }
 
-    /* CARROSSEL INTERATIVO */
+    /* CARROSSEL: reduz um pouco a altura máxima */
     .carousel-image-area {
-        height: 280px;
+                aspect-ratio: 4 / 3;
     }
+
     .carousel-navigation .nav-button {
-        width: 35px;
-        height: 35px;
-        font-size: 1.2rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .btn-main{
+        margin-top: 60px;
     }
 }
